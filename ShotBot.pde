@@ -12,6 +12,7 @@ final int FILL = 4;
 final int UNDOCK = 5;
 final int FILL_DIST = 640-45;
 final int FILL_TIME = 38 * 1000;
+final int WAIT_TIME = 5 * 1000;
 
 int[] motorSpeeds = {0, 0, 0};
 boolean fillingCup = false;
@@ -180,7 +181,7 @@ void calcDrive() {
       if(millis() - fillStartTime > FILL_TIME){
         motorSpeeds[2] = 0;
         fillingCup = false;
-        delay(2000);
+        delay(WAIT_TIME);
       }
     }
     else{ //Need to move forward or back
